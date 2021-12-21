@@ -1,8 +1,7 @@
 class CreateForm4 < ActiveRecord::Migration[6.1]
   def change
     create_table :form4s do |t|
-      
-      t.integer :c020     
+      t.integer :c020
       t.integer :c030
       t.integer :c040
       t.integer :c050

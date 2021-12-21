@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_19_134946) do
+ActiveRecord::Schema.define(version: 2021_12_20_184758) do
 
   create_table "form1s", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "c110"
@@ -62,6 +62,59 @@ ActiveRecord::Schema.define(version: 2021_12_19_134946) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organization_id"], name: "index_form1s_on_organization_id"
+  end
+
+  create_table "form2s", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "c010"
+    t.integer "c020"
+    t.integer "c030"
+    t.integer "c040"
+    t.integer "c050"
+    t.integer "c060"
+    t.integer "c070"
+    t.integer "c080"
+    t.integer "c090"
+    t.integer "c100"
+    t.integer "c110"
+    t.integer "c120"
+    t.integer "c130"
+    t.integer "c140"
+    t.integer "c150"
+    t.integer "c160"
+    t.integer "c170"
+    t.integer "c180"
+    t.integer "c190"
+    t.integer "c200"
+    t.integer "c205"
+    t.integer "c210"
+    t.integer "c220"
+    t.integer "c230"
+    t.integer "c240"
+    t.integer "c250"
+    t.integer "c260"
+    t.bigint "organization_id"
+    t.date "reporting_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id"], name: "index_form2s_on_organization_id"
+  end
+
+  create_table "form4s", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "c020"
+    t.integer "c030"
+    t.integer "c040"
+    t.integer "c050"
+    t.integer "c060"
+    t.integer "c070"
+    t.integer "c080"
+    t.integer "c090"
+    t.integer "c100"
+    t.integer "c110"
+    t.integer "c120"
+    t.integer "c130"
+    t.integer "c140"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "organizations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

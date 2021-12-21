@@ -1,9 +1,8 @@
 class CreateForm2 < ActiveRecord::Migration[6.1]
   def change
     create_table :form2s do |t|
-
       t.integer :c010
-      t.integer :c020     
+      t.integer :c020
       t.integer :c030
       t.integer :c040
       t.integer :c050
@@ -33,10 +32,9 @@ class CreateForm2 < ActiveRecord::Migration[6.1]
       t.integer :c250
       t.integer :c260
 
-      
       t.references :organization
       t.date :reporting_date
-      
+
       t.timestamps
     end
   end

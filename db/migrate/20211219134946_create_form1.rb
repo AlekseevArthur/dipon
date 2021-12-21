@@ -31,7 +31,7 @@ class CreateForm1 < ActiveRecord::Migration[6.1]
       t.integer :c470
       t.integer :c480
       t.integer :c490
-      
+
       t.integer :c510
       t.integer :c520
       t.integer :c530
@@ -47,7 +47,7 @@ class CreateForm1 < ActiveRecord::Migration[6.1]
       t.integer :c650
       t.integer :c660
       t.integer :c670
-      t.integer :c690    
+      t.integer :c690
 
       t.integer :c700
 
@@ -55,6 +55,5 @@ class CreateForm1 < ActiveRecord::Migration[6.1]
       t.date :reporting_date
       t.timestamps
     end
-
   end
 end
