@@ -113,8 +113,11 @@ ActiveRecord::Schema.define(version: 2021_12_20_184758) do
     t.integer "c120"
     t.integer "c130"
     t.integer "c140"
+    t.bigint "organization_id"
+    t.date "reporting_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id"], name: "index_form4s_on_organization_id"
   end
 
   create_table "organizations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

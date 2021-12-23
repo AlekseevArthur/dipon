@@ -15,6 +15,9 @@ class CreateForm4 < ActiveRecord::Migration[6.1]
       t.integer :c120
       t.integer :c130
       t.integer :c140
+      
+      t.references :organization
+      t.date :reporting_date
       t.timestamps
     end
   end
