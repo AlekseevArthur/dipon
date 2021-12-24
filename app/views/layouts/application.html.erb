@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= react_component('Layouts/Navbar', {user: current_user})%>
     <%= yield %>
   </body>
 </html>

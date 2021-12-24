@@ -1,16 +1,18 @@
 # dfsdfsd
 class Form1sController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_form1, only: %i[show destroy update]
-  before_action :authenticate_user!, only: %i[create destroy]
+
+  # before_action :authenticate_user!, only: %i[create destroy]
   def index; end
 
   def create
     @form1 = Form1.new(form1_params)
     respond_to do |format|
-      if @comment.save!
-        format.json { render json: @comment, status: :created }
+      if @form1.save!
+        format.json { render json: @form1, status: :created }
       else
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.json { render json: @form1.errors, status: :unprocessable_entity }
       end
       format.html
     end
