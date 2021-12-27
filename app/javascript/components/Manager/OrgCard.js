@@ -33,7 +33,7 @@ const OrgForm = ({ org, setState }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch(`/organizations/1`,{
+    fetch(`/organization`,{
       method: 'PUT',
       headers: {
         'Content-type': 'application/json'

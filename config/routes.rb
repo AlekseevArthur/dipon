@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users do
-    resources :form1s
-    resources :form2s
-    resources :form4s
+  resource :user do
+    resource :form1
+    resource :form2
+    resource :form3
+    resource :form4
   end
-  resources :organizations
+  resource :organization
+  resource :dashboard
   root 'static#index'
 end

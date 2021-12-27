@@ -3,7 +3,8 @@ import React, { UseState } from 'react'
 const FormsTable = () => {
 
   const getFormsStatus = () => {
-    fetch('')
+    fetch('/dashboard/')
+      .then()
   }
 
   return (<div>

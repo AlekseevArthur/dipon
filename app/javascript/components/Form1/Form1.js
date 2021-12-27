@@ -10,7 +10,7 @@ const Form1 = (props) => {
       ...values,
       ...totals
     })
-    fetch(`/users/1/form1s`, {
+    fetch(`/user/form1s`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'

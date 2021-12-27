@@ -8,8 +8,9 @@ class Form1sController < ApplicationController
 
   def create
     @form1 = Form1.new(form1_params)
+    @form1.organization_id = current_user.organization.id
     respond_to do |format|
-      if @form1.save!
+      if @form1.save
         format.json { render json: @form1, status: :created }
       else
         format.json { render json: @form1.errors, status: :unprocessable_entity }
