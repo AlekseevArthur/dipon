@@ -5,7 +5,6 @@ class Form2sController < ApplicationController
 
   def create
     @form2 = Form2.new(form2_params)
-    puts params
     respond_to do |format|
       if @form2.save!
         format.json { render json: @form2, status: :created }

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Navbar = (props) => {
-  console.log(props)
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -12,7 +11,7 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Главная</a>
+              <a className="nav-link active" aria-current="page" href="/users">Главная</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Формы</a>

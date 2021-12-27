@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import Accordion from './Accordion'
-import UserCard from './UserCard'
-const ManagerHome = () => {
+import FormsTable from './FormsTable'
+import OrgCard from './OrgCard'
+
+const ManagerHome = (props) => {
     return (
         <div>
+            <hr />
+            <OrgCard org={props.org} />
+            <FormsTable />
             <Accordion />
-            <UserCard />
         </div>
     )
 }

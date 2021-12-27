@@ -10,17 +10,16 @@ const Form1 = (props) => {
       ...values,
       ...totals
     })
-    fetch(`/users/${props.user.id}/form2s`, {
+    fetch(`/users/1/form1s`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ form1: {...values,...totals} })
+      body: JSON.stringify({ form1: { ...values, ...totals, reporting_date: '2021.01.01' } })
     })
   }
 
   const handleChange = (e) => {
-
     setValues({
       ...values,
       ...totals,
@@ -29,7 +28,7 @@ const Form1 = (props) => {
   }
 
   const totals = {}
-  console.log(values)
+
   const setTotals = () => {
     totals['c190'] = values['c110'] + values['c120']
       + values['c130'] + values['c140'] + values['c150']
@@ -332,7 +331,6 @@ const Form1 = (props) => {
           </tbody>
 
         </table>
-
         <input type="submit" value="Submit" />
       </form>
     </div>
