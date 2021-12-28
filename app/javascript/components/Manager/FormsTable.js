@@ -1,12 +1,15 @@
-import React, { UseState } from 'react'
+import React, { useState } from 'react'
 
 const FormsTable = () => {
+  const [state, setState] = useState({ forms: [], loading: true })
 
   const getFormsStatus = () => {
-    fetch('/dashboard/')
-      .then()
+    fetch('/dashboard.json')
+      .then(res => res.json())
+      .then(data => setState({ forms: data, loading: false }))
   }
-
+  state.loading ? getFormsStatus() : null
+  console.log(state)
   return (<div>
     <table className="table table-bordered table-hover">
       <thead className="thead-dark" >
@@ -21,21 +24,14 @@ const FormsTable = () => {
       <tbody>
         <tr>
           <td>2021</td>
-          <td>link</td>
+          <td>{state.forms.indexOf('2021-01-01') + 1 ? 'edit' : 'create'}</td>
           <td>link</td>
           <td>link</td>
           <td>link</td>
         </tr>
         <tr>
           <td>2020</td>
-          <td>link</td>
-          <td>link</td>
-          <td>link</td>
-          <td>link</td>
-        </tr>
-        <tr>
-          <td>2019</td>
-          <td>link</td>
+          <td>{state.forms.indexOf('2020.01.01') + 1 ? 'edit' : 'create'}</td>
           <td>link</td>
           <td>link</td>
           <td>link</td>
