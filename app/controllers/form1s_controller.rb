@@ -2,9 +2,7 @@
 class Form1sController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_form1, only: %i[show destroy update]
-
-  # before_action :authenticate_user!, only: %i[create destroy]
-  def index; end
+  before_action :authenticate_user!, only: %i[create destroy]
 
   def create
     @form1 = Form1.new(form1_params)

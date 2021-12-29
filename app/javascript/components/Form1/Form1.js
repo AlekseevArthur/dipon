@@ -333,7 +333,8 @@ const Form1 = (props) => {
           </tbody>
 
         </table>
-        <input type="submit" value="Submit" />
+        <input className="btn btn-success" type="submit" value="Создать" />
+        <hr/>
       </form>
     </div>
   )

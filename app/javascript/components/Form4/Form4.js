@@ -5,23 +5,31 @@ const Form4 = props => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/form2s', {
+    fetch('/user/form4', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ form2: values })
+      body: JSON.stringify({ form4: { ...values, ...totals, reporting_date: `${year}.01.01` } })
     })
+  }
+
+  const totals = {}
+
+  const setTotals = () => {
+    totals['c040'] = values['c020'] - values['c030']
+    totals['c070'] = values['c050'] - values['c060']
+    totals['c100'] = values['c080'] - values['c090']
   }
 
   const handleChange = (e) => {
     setValues({
       ...values,
-      ...dinamicValues,
+      ...totals,
       [e.target.name]: parseInt(e.target.value)
     })
   }
-
+  setTotals()
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
@@ -57,7 +65,7 @@ const Form4 = props => {
             <tr>
               <th scope="row">Результат движения денежных средств по текущей деятельности (020 - 030)</th>
               <td>040</td>
-              <td></td>
+              <td>{totals['c040'] ? totals['c040'] : 0}</td>
             </tr>
             <tr className="table-primary">
               <th scope="row">Движение денежных средств по инвестиционной деятельности </th>
@@ -77,7 +85,7 @@ const Form4 = props => {
             <tr>
               <th scope="row">Результат движения денежных средств по инвестиционной деятельности (050 - 060)</th>
               <td>070</td>
-              <td></td>
+              <td>{totals['c070'] ? totals['c070'] : 0}</td>
             </tr>
             <tr className="table-primary">
               <th scope="row">Движение денежных средств по финансовой деятельности </th>
@@ -97,10 +105,12 @@ const Form4 = props => {
             <tr>
               <th scope="row">Результат движения денежных средств по финансовой деятельности (080 - 090)</th>
               <td>100</td>
-              <td></td>
+              <td>{totals['c100'] ? totals['c100'] : 0}</td>
             </tr>
           </tbody>
         </table>
+        <input className="btn btn-success" type="submit" value="Создать" />
+        <hr />
       </form>
     </div>
   )

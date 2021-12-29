@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const OrgCard = (props) => {
   const [edit, setState] = useState(false)
 
-  return <div>
+  return <div className='container'>
     {edit ?
       <OrgForm setState={setState} org={props.org} /> :
       <OrgInfo setState={setState} org={props.org} />}

@@ -12,34 +12,36 @@ const FormsTable = () => {
   }
   state.loading ? getFormsStatus() : null
 
-  return (<div>
-    <table className="table table-bordered table-hover">
-      <thead className="thead-dark" >
-        <tr>
-          <th>Год</th>
-          <th>Форма 1</th>
-          <th>Форма 2</th>
-          <th>Форма 3</th>
-          <th>Форма 4</th>
-        </tr>
-      </thead>
-      <tbody>
-        {years.map((year, key) => <YearRow
-          key={key}
-          year={year}
-          forms1={state.forms1}
-          forms2={state.forms2}
-          forms4={state.forms4} />)}
-      </tbody>
-    </table>
-  </div>)
+  return (
+    <div className='container'>
+      <table className="table table-bordered table-hover">
+        <thead className="thead-dark" >
+          <tr>
+            <th>Год</th>
+            <th>Форма 1</th>
+            <th>Форма 2</th>
+            <th>Форма 3</th>
+            <th>Форма 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          {years.map((year, key) => <YearRow
+            key={key}
+            year={year}
+            forms1={state.forms1}
+            forms2={state.forms2}
+            forms4={state.forms4} />)}
+        </tbody>
+      </table>
+    </div>)
 }
 
 const EditLink = ({ year, form }) => {
-  return <td className="table-info">
-    <a className="link-dark"
-      href={`/user/${form}/edit/?year=${year}`}>Изменить</a>
-  </td>
+  return (
+    <td className="table-info">
+      <a className="link-dark"
+        href={`/user/${form}/edit/?year=${year}`}>Изменить</a>
+    </td>)
 }
 
 function CreateLink({ year, form }) {

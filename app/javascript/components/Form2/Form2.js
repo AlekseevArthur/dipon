@@ -3,14 +3,16 @@ import React, { useState } from "react";
 const Form2 = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/form2s', {
+    fetch('/user/form2', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ form2: values })
+      body: JSON.stringify({ form2: { ...values, ...dinamicValues, reporting_date: `${year}.01.01` } })
     })
   }
+
+  const year = new URLSearchParams(window.location.search).get('year')
 
   const handleChange = (e) => {
     setValues({
@@ -191,8 +193,8 @@ const Form2 = () => {
             </tr>
           </tbody>
         </table>
-        <input name='date' type='date' />
-        <input type="submit" value="Submit" />
+        <input className="btn btn-success" type="submit" value="Создать" />
+        <hr />
       </form>
     </div>
   )
