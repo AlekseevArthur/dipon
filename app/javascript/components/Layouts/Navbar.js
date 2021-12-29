@@ -1,6 +1,18 @@
 import React from 'react'
 
 const Navbar = (props) => {
+
+  const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+
+  const logout = () => {
+    fetch('/users/sign_out', {
+      method: 'DELETE',
+      headers: {
+        'X-CSRF-Token': csrf
+      }})
+      .then(()=>window.location='/')
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -18,6 +30,9 @@ const Navbar = (props) => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Отчеты</a>
+            </li>
+            <li className="nav-item">
+              <span className="link-warning" onClick={logout}>Выйти</span>
             </li>
           </ul>
         </div>
