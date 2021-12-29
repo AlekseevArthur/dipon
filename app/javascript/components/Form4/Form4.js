@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const Form4 = props => {
   const [values, setValues] = useState({})
 
+  const year = new URLSearchParams(window.location.search).get('year')
+
   const handleSubmit = (e) => {
     e.preventDefault()
     fetch('/user/form4', {
@@ -106,6 +108,26 @@ const Form4 = props => {
               <th scope="row">Результат движения денежных средств по финансовой деятельности (080 - 090)</th>
               <td>100</td>
               <td>{totals['c100'] ? totals['c100'] : 0}</td>
+            </tr>
+            <tr>
+              <th scope="row">Результат движения денежных средств за отчетный период(+-40+-70+-100)</th>
+              <td>110</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Отстаток денежных средств и из эквивалентов на начало периода соответствующего периода</th>
+              <td>120</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Отстаток денежных средств и из эквивалентов на конец отчетного периода</th>
+              <td>130</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Влияние изменений курса иностарнной валюты по отношению к беларусскому рублю</th>
+              <td>140</td>
+              <td></td>
             </tr>
           </tbody>
         </table>

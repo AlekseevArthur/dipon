@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
   resource :organization
   resource :dashboard
-  root 'static#index'
+  root 'users#show'
 end

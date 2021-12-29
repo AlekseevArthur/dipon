@@ -17,8 +17,16 @@ const Form1 = (props) => {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ form1: { ...values, ...totals, reporting_date: `${year}.01.01` } })
+      body: JSON.stringify({
+        form1: {
+          ...values,
+          ...totals,
+          reporting_date: `${year}.01.01`
+        }
+      })
     })
+      .then(res => res.status ? window.location = '/user' : null)
+
   }
 
   const handleChange = (e) => {
@@ -334,7 +342,7 @@ const Form1 = (props) => {
 
         </table>
         <input className="btn btn-success" type="submit" value="Создать" />
-        <hr/>
+        <hr />
       </form>
     </div>
   )

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const FormsTable = () => {
   const [state, setState] = useState({ forms1: [], forms2: [], forms4: [], loading: true })
 
-  const years = ['2021', '2020', '2019', '2018', '2017']
+  const years = ['2021', '2020', '2019', '2018', '2017', '2016']
 
   const getFormsStatus = () => {
     fetch('/dashboard.json')
