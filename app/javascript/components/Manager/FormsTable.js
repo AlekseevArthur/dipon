@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 
 const FormsTable = () => {
-  const [state, setState] = useState({ forms: [], loading: true })
+  const [state, setState] = useState({ forms1: [], forms2: [], forms4: [], loading: true })
+
+  const years = ['2021', '2020', '2019', '2018', '2017']
 
   const getFormsStatus = () => {
     fetch('/dashboard.json')
       .then(res => res.json())
-      .then(data => setState({ forms: data, loading: false }))
+      .then(data => setState({ ...data, loading: false }))
   }
   state.loading ? getFormsStatus() : null
-  console.log(state)
+
   return (<div>
     <table className="table table-bordered table-hover">
       <thead className="thead-dark" >
@@ -22,23 +24,45 @@ const FormsTable = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>2021</td>
-          <td>{state.forms.indexOf('2021-01-01') + 1 ? 'edit' : 'create'}</td>
-          <td>link</td>
-          <td>link</td>
-          <td>link</td>
-        </tr>
-        <tr>
-          <td>2020</td>
-          <td>{state.forms.indexOf('2020.01.01') + 1 ? 'edit' : 'create'}</td>
-          <td>link</td>
-          <td>link</td>
-          <td>link</td>
-        </tr>
+        {years.map((year, key) => <YearRow
+          key={key}
+          year={year}
+          forms1={state.forms1}
+          forms2={state.forms2}
+          forms4={state.forms4} />)}
       </tbody>
     </table>
   </div>)
+}
+
+const EditLink = ({ year, form }) => {
+  return <td className="table-info">
+    <a className="link-dark"
+      href={`/user/${form}/edit/?year=${year}`}>Изменить</a>
+  </td>
+}
+
+function CreateLink({ year, form }) {
+  return <td className="table-warning">
+    <a className="link-success"
+      href={`/user/${form}/new/?year=${year}`}>Создать</a>
+  </td>
+}
+
+const YearRow = ({ year, forms1, forms2, forms4 }) => {
+  return <tr>
+    <td>{year}</td>
+    <YearCell year={year} forms={forms1} form='form1' />
+    <YearCell year={year} forms={forms2} form='form2' />
+    <td>{year}</td>
+    <YearCell year={year} forms={forms4} form='form4' />
+  </tr>
+}
+
+const YearCell = ({ year, forms, form }) => {
+  return forms.find(x => x.year === `${year}-01-01`)
+    ? <EditLink year={year} form={form} />
+    : <CreateLink year={year} form={form} />
 }
 
 export default FormsTable

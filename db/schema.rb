@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 2021_12_27_063438) do
     t.integer "c120"
     t.integer "c130"
     t.integer "c140"
+    t.bigint "organization_id"
+    t.date "reporting_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 const Form1 = (props) => {
   const [values, setValues] = useState({})
 
+  const year = new URLSearchParams(window.location.search).get('year')
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setValues({
@@ -15,7 +17,7 @@ const Form1 = (props) => {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ form1: { ...values, ...totals, reporting_date: '2021.01.01' } })
+      body: JSON.stringify({ form1: { ...values, ...totals, reporting_date: `${year}.01.01` } })
     })
   }
 
