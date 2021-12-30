@@ -12,5 +12,4 @@ RSpec.describe 'Test device functionality', type: :feature do
   #     click_on 'Выйти'
   #     expect(page).not_to have_content('corporation')
   #   end
-
 end

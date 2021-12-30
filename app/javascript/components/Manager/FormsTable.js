@@ -40,7 +40,7 @@ const EditLink = ({ year, form }) => {
   return (
     <td className="table-info">
       <a className="link-dark"
-        href={`/user/${form}/edit/?year=${year}`}>Изменить</a>
+        href={`/user/${form}/new/?year=${year}`}>Изменить</a>
     </td>)
 }
 

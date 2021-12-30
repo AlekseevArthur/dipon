@@ -7,33 +7,25 @@ class Form1sController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
 
   def create
-    @form1f = Form1.new(form1f_params)
-    @form1f.organization_id = current_user.organization.id
-    @form1s = Form1.new(form1s_params)
-    @form1s.organization_id = current_user.organization.id
-
-    Form1.transaction do
-      @form1f.save!
-      @form1s.save!
-    end
+    @form1 = Form1.new(form1_params)
+    @form1.organization_id = current_user.organization.id
 
     respond_to do |format|
-      if Form1.exists?(@form1f.id) && Form1.exists?(@form1s.id)
-        format.json { render json: @form1f, status: :created }
+      if @form1.save
+        format.json { render json: @form1, status: :created }
       else
-        format.json { render json: @form1f.errors, status: :unprocessable_entity }
+        format.json { render json: @form1.errors, status: :unprocessable_entity }
       end
       format.html
     end
   end
 
-  def new; end
-
-  def form1f_params
-    params.require(:form1f).permit!
+  def new
+    @last_year_form = Form1.find_by reporting_date: "#{params[:year].to_i - 1}.01.01"
+    @form_edit_data = Form1.find_by reporting_date: "#{params[:year]}.01.01"
   end
 
-  def form1s_params
-    params.require(:form1s).permit!
+  def form1_params
+    params.require(:form1).permit!
   end
 end

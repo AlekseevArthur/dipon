@@ -13,7 +13,7 @@ const Form2 = () => {
         form2s: { ...valuesS, ...dinValS, reporting_date: `${parseInt(year) + 1}.01.01` }
       })
     })
-    .then(res => res.status ? window.location = '/user' : null)
+          .then(res => res.status ? window.location = '/user' : null)
   }
 
   const year = new URLSearchParams(window.location.search).get('year')
@@ -34,8 +34,11 @@ const Form2 = () => {
     })
   }
 
+
   const [valuesF, setvaluesF] = useState({})
   const [valuesS, setvaluesS] = useState({})
+
+
 
   let dinValF = setDinValuesF(valuesF)
   let dinValS = setDinValuesF(valuesS)
