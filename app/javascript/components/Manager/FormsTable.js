@@ -56,7 +56,7 @@ const YearRow = ({ year, forms1, forms2, forms4 }) => {
     <td>{year}</td>
     <YearCell year={year} forms={forms1} form='form1' />
     <YearCell year={year} forms={forms2} form='form2' />
-    <td>{year}</td>
+    <YearCell year={year} forms={forms1} form='form1' />
     <YearCell year={year} forms={forms4} form='form4' />
   </tr>
 }

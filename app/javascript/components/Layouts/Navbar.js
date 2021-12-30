@@ -2,13 +2,13 @@ import React from 'react'
 
 const Navbar = (props) => {
 
-  const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+ // const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
   const logout = () => {
     fetch('/users/sign_out', {
       method: 'DELETE',
       headers: {
-        'X-CSRF-Token': csrf
+ //       'X-CSRF-Token': csrf
       }})
       .then(()=>window.location='/')
   }
@@ -16,7 +16,7 @@ const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Aleksar Fin</a>
+        <a className="navbar-brand" href="/">Aleksar Fin</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
