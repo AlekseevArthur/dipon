@@ -264,6 +264,9 @@ header.masthead .h1 {
 }
 
 .table td {
-  text-align: center;
+  text-align: right;
   } 
 
+ td input {
+    max-width: 5em;
+}

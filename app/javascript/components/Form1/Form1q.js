@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 
-const Form1q = ({currentForm}) => {
-  const [values, setValues] = useState({})
+const Form1q = ({ currentForm }) => {
+  const [values, setValues] = useState({ ...currentForm })
 
   const year = new URLSearchParams(window.location.search).get('year')
 
@@ -63,42 +63,42 @@ const Form1q = ({currentForm}) => {
             <tr>
               <th scope="row">Основные средства</th>
               <td>110</td>
-              <td><input type="number" name='c110' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c110 : 0} name='c110' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Нематериальные активы</th>
               <td>120</td>
-              <td><input type="number" name='c120' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c120 : 0} name='c120' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Доходные вложения в материальные ценности</th>
               <td>130</td>
-              <td><input type="number" name='c130' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c130 : 0} name='c130' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Вложения в долгосрочные активы </th>
               <td>140</td>
-              <td><input type="number" name='c140' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c140 : 0} name='c140' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Долгосрочные финансовые вложения</th>
               <td>150</td>
-              <td><input type="number" name='c150' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c150 : 0} name='c150' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Отложенные налоговые активы</th>
               <td>160</td>
-              <td><input type="number" name='c160' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c160 : 0} name='c160' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Долгосрочная дебиторская задолженность</th>
               <td>170</td>
-              <td><input type="number" name='c170' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c170 : 0} name='c170' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Прочие долгосрочные активы</th>
               <td>180</td>
-              <td><input type="number" name='c180' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c180 : 0} name='c180' onChange={handleChangeS} /></td>
             </tr>
             <tr className="table-secondary">
               <th scope="row">ИТОГО по разделу I</th>
@@ -114,42 +114,42 @@ const Form1q = ({currentForm}) => {
             <tr>
               <th scope="row">Запасы и затраты</th>
               <td>210</td>
-              <td><input type="number" name='c210' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c210 : 0} name='c210' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Долгосрочные активы, предназначенные для реализации</th>
               <td>220</td>
-              <td><input type="number" name='c220' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c220 : 0} name='c220' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Расходы будущих периодов </th>
               <td>230</td>
-              <td><input type="number" name='c230' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c230 : 0} name='c230' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Налог на добавленную стоимость по приобретенным товарам, работам, услугам </th>
               <td>240</td>
-              <td><input type="number" name='c240' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c240 : 0} name='c240' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Краткосрочная дебиторская задолженность </th>
               <td>250</td>
-              <td><input type="number" name='c250' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c250 : 0} name='c250' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Краткосрочные финансовые вложения </th>
               <td>260</td>
-              <td><input type="number" name='c260' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c260 : 0} name='c260' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Денежные средства и их эквиваленты</th>
               <td>270</td>
-              <td><input type="number" name='c270' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c270 : 0} name='c270' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Прочие краткосрочные активы </th>
               <td>280</td>
-              <td><input type="number" name='c280' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c280 : 0} name='c280' onChange={handleChangeS} /></td>
             </tr>
             <tr className="table-secondary">
               <th scope="row">ИТОГО по разделу II </th>
@@ -183,42 +183,42 @@ const Form1q = ({currentForm}) => {
             <tr>
               <th scope="row">Уставный капитал </th>
               <td>410</td>
-              <td><input type="number" name='c410' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c410 : 0} name='c410' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Неоплаченная часть уставного капитала</th>
               <td>420</td>
-              <td><input type="number" name='c420' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c420 : 0} name='c420' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Собственные акции (доли в уставном капитале)</th>
               <td>430</td>
-              <td><input type="number" name='c430' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c430 : 0} name='c430' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Резервный капитал</th>
               <td>440</td>
-              <td><input type="number" name='c440' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c440 : 0} name='c440' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Добавочный капитал</th>
               <td>450</td>
-              <td><input type="number" name='c450' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c450 : 0} name='c450' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Нераспределенная прибыль (непокрытый убыток) </th>
               <td>460</td>
-              <td><input type="number" name='c460' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c460 : 0} name='c460' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Чистая прибыль (убыток) отчетного периода </th>
               <td>470</td>
-              <td><input type="number" name='c470' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c470 : 0} name='c470' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Целевое финансирование </th>
               <td>480</td>
-              <td><input type="number" name='c480' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c480 : 0} name='c480' onChange={handleChangeS} /></td>
             </tr>
             <tr className="table-secondary">
               <th scope="row">ИТОГО по разделу III</th>
@@ -234,32 +234,32 @@ const Form1q = ({currentForm}) => {
             <tr>
               <th scope="row">Долгосрочные кредиты и займы</th>
               <td>510</td>
-              <td><input type="number" name='c510' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c510 : 0} name='c510' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Долгосрочные обязательства по лизинговым платежам</th>
               <td>520</td>
-              <td><input type="number" name='c520' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c520 : 0} name='c520' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Отложенные налоговые обязательства</th>
               <td>530</td>
-              <td><input type="number" name='c530' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c530 : 0} name='c530' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Доходы будущих периодов </th>
               <td>540</td>
-              <td><input type="number" name='c540' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c540 : 0} type="number" name='c540' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Резервы предстоящих платежей</th>
               <td>550</td>
-              <td><input type="number" name='c550' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c550 : 0} name='c550' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Прочие долгосрочные обязательства</th>
               <td>560</td>
-              <td><input type="number" name='c560' onChange={handleChangeS}/></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c560 : 0} name='c560' onChange={handleChangeS} /></td>
             </tr>
             <tr className="table-secondary">
               <th scope="row">ИТОГО по разделу IV</th>
@@ -274,37 +274,37 @@ const Form1q = ({currentForm}) => {
             <tr>
               <th scope="row">Краткосрочные кредиты и займы</th>
               <td>610</td>
-              <td><input type="number" name='c610' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c610 : 0} name='c610' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Краткосрочная часть долгосрочных обязательств</th>
               <td>620</td>
-              <td><input type="number" name='c620' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c620 : 0} name='c620' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Краткосрочная кредиторская задолженность</th>
               <td>630</td>
-              <td><input type="number" name='c630' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c630 : 0} name='c630' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Обязательства, предназначенные для реализации</th>
               <td>640</td>
-              <td><input type="number" name='c640' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c640 : 0} name='c640' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Доходы будущих периодов </th>
               <td>650</td>
-              <td><input type="number" name='c650' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c650 : 0} name='c650' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Резервы предстоящих расходов</th>
               <td>660</td>
-              <td><input type="number" name='c660' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c660 : 0} name='c660' onChange={handleChangeS} /></td>
             </tr>
             <tr>
               <th scope="row">Прочие краткосрочные обязательства </th>
               <td>670</td>
-              <td><input type="number" name='c670' onChange={handleChangeS} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c670 : 0} name='c670' onChange={handleChangeS} /></td>
             </tr>
             <tr className="table-secondary">
               <th scope="row">ИТОГО по разделу V</th>

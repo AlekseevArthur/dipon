@@ -2,13 +2,16 @@
 
 todo list
 
-- вторая колонка на каждой форме
-    - разделения на без прошлого года и прошлым
-    - 
-- форма 3 (impossible)
++ вторая колонка на каждой форме
+    + разделения на без прошлого года и прошлым + 
+    + на форме 2 тоже +
+    - 4 forma????
 - огрнаичения?????
 - тесты??????
 - на форме 1 схождение баланса
-- redactirovanie
-- stylish registation and login form
-- доделать изменение-создание
++ redactirovanie
+- stylish login form
++ доделать изменение-создание 
+- validation
+- labels on forms
+- change "new" action to "show"

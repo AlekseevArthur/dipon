@@ -20,7 +20,6 @@ const FormsTable = () => {
             <th>Год</th>
             <th>Форма 1</th>
             <th>Форма 2</th>
-            <th>Форма 3</th>
             <th>Форма 4</th>
           </tr>
         </thead>
@@ -56,7 +55,6 @@ const YearRow = ({ year, forms1, forms2, forms4 }) => {
     <td>{year}</td>
     <YearCell year={year} forms={forms1} form='form1' />
     <YearCell year={year} forms={forms2} form='form2' />
-    <YearCell year={year} forms={forms1} form='form1' />
     <YearCell year={year} forms={forms4} form='form4' />
   </tr>
 }

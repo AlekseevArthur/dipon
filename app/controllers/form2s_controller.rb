@@ -1,36 +1,38 @@
+# frozen_string_literal: true
+
+# dfsdfsd
 class Form2sController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!, only: %i[create destroy]
 
-  def new; end
-
   def create
-    @form2f = Form2.new(form2f_params)
-    @form2f.organization_id = current_user.organization.id
-    @form2s = Form2.new(form2s_params)
-    @form2s.organization_id = current_user.organization.id
-
-    Form2.transaction do
-      @form2f.save!
-      @form2s.save!
-    end
     respond_to do |format|
-      if Form2.exists?(@form2f.id) && Form2.exists?(@form2s.id)
-        format.json { render json: @form2f, status: :created }
+      if params[:form2][:id]
+        @form2 = Form2.find(params[:form2][:id])
+        if @form2.update(form2_params)
+          format.json { render json: @form2, status: :created }
+        else
+          format.json { render json: @form2.errors, status: :unprocessable_entity }
+        end
       else
-        format.json { render json: @form2f.errors, status: :unprocessable_entity }
+        @form2 = Form2.new(form2_params)
+        @form2.organization_id = current_user.organization.id
+        if @form2.save!
+          format.json { render json: @form2, status: :created }
+        else
+          format.json { render json: @form2.errors, status: :unprocessable_entity }
+        end
       end
       format.html
     end
   end
 
-  def form2f_params
-    puts params
-    params.require(:form2f).permit!
+  def new
+    @last_year_form = Form2.find_by reporting_date: "#{params[:year].to_i - 1}.01.01"
+    @form_edit_data = Form2.find_by reporting_date: "#{params[:year]}.01.01"
   end
 
-  def form2s_params
-    puts params
-    params.require(:form2s).permit!
+  def form2_params
+    params.require(:form2).permit!
   end
 end
