@@ -213,7 +213,7 @@ const Form2Full = ({ lastForm, currentForm }) => {
             </tr>
           </tbody>
         </table>
-        <input className="btn btn-success" type="submit" value="Создать" />
+        <input className="btn btn-success" type="submit" value="Сохранить" />
         <hr />
       </form>
     </div>

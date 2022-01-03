@@ -8,25 +8,26 @@ const Form1q = ({ currentForm }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setValues({
-      ...values,
-      ...totals
-    })
-    fetch(`/user/form1`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        form1: {
-          ...values,
-          ...totals,
-          reporting_date: `${year}.01.01`
-        }
+    if (values['c300'] - values['c700'] === 0) {
+      setValues({
+        ...values,
+        ...totals
       })
-    })
-      .then(res => res.status ? window.location = '/user' : null)
-
+      fetch(`/user/form1`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          form1: {
+            ...values,
+            ...totals,
+            reporting_date: `${year}.01.01`
+          }
+        })
+      })
+        .then(res => res.status ? window.location = '/user' : null)
+    }
   }
 
   const handleChangeS = (e) => {
@@ -162,8 +163,8 @@ const Form1q = ({ currentForm }) => {
               <td>{totals['c300'] ? totals['c300'] : ''}</td>
             </tr>
           </tbody>
-          <thead className="thead-dark">
-            <tr>
+          <thead className="table-dark">
+            <tr >
               <th scope="col">ПАССИВ</th>
               <th scope="col">КОД</th>
               <th scope="col">{'12.31.' + year}</th>
@@ -316,12 +317,12 @@ const Form1q = ({ currentForm }) => {
               <td>700</td>
               <td>{totals['c700'] ? totals['c700'] : ''}</td>
             </tr>
-
           </tbody>
-
         </table>
-        <input className="btn btn-success" type="submit" value="Создать" />
+        {values['c300'] - values['c700'] == 0 ? null : <h1 className="text-danger">БАЛАНС( 300 - 700 ) HE CXOДИТСЯ</h1>}
+        <input className="btn btn-success" type="submit" value="Сохранить" />
         <hr />
+
       </form>
     </div>
   )

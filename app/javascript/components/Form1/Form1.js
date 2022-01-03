@@ -7,25 +7,27 @@ const Form1Full = ({ lastForm, currentForm }) => {
   const year = new URLSearchParams(window.location.search).get('year')
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setValues({
-      ...values,
-      ...totals
-    })
-    fetch(`/user/form1`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        form1: {
-          ...values,
-          ...totals,
-          reporting_date: `${year}.01.01`
-        }
+    if (totals['c300'] - totals['c700'] === 0) {
+      e.preventDefault()
+      setValues({
+        ...values,
+        ...totals
       })
-    })
-      .then(res => res.status ? window.location = '/user' : null)
+      fetch(`/user/form1`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          form1: {
+            ...values,
+            ...totals,
+            reporting_date: `${year}.01.01`
+          }
+        })
+      })
+        .then(res => res.status === 'ok' ? window.location = '/user' : null)
+    }
   }
 
   const handleChangeS = (e) => {
@@ -185,7 +187,7 @@ const Form1Full = ({ lastForm, currentForm }) => {
               <td>{totals['c300'] ? totals['c300'] : ''}</td>
             </tr>
           </tbody>
-          <thead className="thead-dark">
+          <thead className="table-dark">
             <tr>
               <th scope="col">ПАССИВ</th>
               <th scope="col">КОД</th>
@@ -371,9 +373,13 @@ const Form1Full = ({ lastForm, currentForm }) => {
             </tr>
           </tbody>
         </table>
-        <input className="btn btn-success" type="submit" value="Создать" />
+        <input className="btn btn-success" type="submit" value="Сохранить" />
         <hr />
+
+        <h1>БАЛАНС</h1>
       </form>
+
+
     </div>
   )
 }

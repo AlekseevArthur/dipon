@@ -2,13 +2,11 @@ import React from 'react'
 
 const Navbar = (props) => {
 
- // const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-
   const logout = () => {
     fetch('/users/sign_out', {
       method: 'DELETE',
       headers: {
- //       'X-CSRF-Token': csrf
+         'X-CSRF-Token': props.token
       }})
       .then(()=>window.location='/')
   }

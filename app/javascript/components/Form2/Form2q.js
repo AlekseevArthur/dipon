@@ -27,8 +27,6 @@ const Form2q = ({ currentForm }) => {
 
   const [valuesS, setvaluesS] = useState({...currentForm})
 
-  console.log(valuesS)
-
   let dinValS = setDinValuesF(valuesS)
   return (
     <div className="container">
@@ -184,7 +182,7 @@ const Form2q = ({ currentForm }) => {
             </tr>
           </tbody>
         </table>
-        <input className="btn btn-success" type="submit" value="Создать" />
+        <input className="btn btn-success" type="submit" value="Сохранить" />
         <hr />
       </form>
     </div>

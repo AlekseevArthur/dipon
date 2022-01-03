@@ -8,10 +8,12 @@ todo list
     - 4 forma????
 - огрнаичения?????
 - тесты??????
-- на форме 1 схождение баланса
++ на форме 1 схождение баланса
 + redactirovanie
 - stylish login form
 + доделать изменение-создание 
 - validation
 - labels on forms
 - change "new" action to "show"
+- rewrite forms with component approach
+- handle with crsf
