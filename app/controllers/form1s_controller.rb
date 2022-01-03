@@ -8,7 +8,7 @@ class Form1sController < ApplicationController
 
   def create
     respond_to do |format|
-      if Form1.find(params[:form1][:id])
+      if params[:form1][:id]
         @form1 = Form1.find(params[:form1][:id])
         if @form1.update(form1_params)
           format.json { render json: @form1, status: :created }

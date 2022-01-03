@@ -373,10 +373,9 @@ const Form1Full = ({ lastForm, currentForm }) => {
             </tr>
           </tbody>
         </table>
+        {totals['c300'] - totals['c700'] == 0 ? null : <h1 className="text-danger">БАЛАНС( 300 - 700 ) HE CXOДИТСЯ</h1>}
         <input className="btn btn-success" type="submit" value="Сохранить" />
         <hr />
-
-        <h1>БАЛАНС</h1>
       </form>
 
 
