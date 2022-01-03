@@ -11,6 +11,7 @@ RSpec.describe 'Form1 requests', type: :request do
     expect(Form1.count).to eq(0)
     post '/user/form1', params: { form1: form1 }
     expect(Form1.count).to eq(1)
+    expect(response).to have_http_status(:ok)
   end
 
   it 'update form' do

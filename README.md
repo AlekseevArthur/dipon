@@ -16,4 +16,4 @@ todo list
 - labels on forms
 - change "new" action to "show"
 - rewrite forms with component approach
-- handle with crsf
++ handle with crsf

@@ -11,20 +11,23 @@ class Form1sController < ApplicationController
       if params[:form1][:id]
         @form1 = Form1.find(params[:form1][:id])
         if @form1.update(form1_params)
+          format.html { render :new, status: :ok }
           format.json { render json: @form1, status: :created }
         else
           format.json { render json: @form1.errors, status: :unprocessable_entity }
+          format.html { render :new, status: :unprocessable_entity }
         end
       else
         @form1 = Form1.new(form1_params)
         @form1.organization_id = current_user.organization.id
         if @form1.save!
+          format.html { render :new, status: :ok }
           format.json { render json: @form1, status: :created }
         else
           format.json { render json: @form1.errors, status: :unprocessable_entity }
+          format.html { render :new, status: :unprocessable_entity }
         end
       end
-      format.html
     end
   end
 
