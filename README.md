@@ -10,7 +10,7 @@ todo list
 - тесты??????
 + на форме 1 схождение баланса
 + redactirovanie
-- stylish login form
++ stylish login form
 + доделать изменение-создание 
 - validation
 - labels on forms
