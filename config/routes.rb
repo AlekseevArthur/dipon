@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resource :organization
   resource :dashboard
+  resource :report
   get '/welcome', to: 'static#index'
   root 'users#show'
 end
