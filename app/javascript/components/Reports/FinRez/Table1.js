@@ -9,7 +9,7 @@ const Table1 = ({ data }) => {
           <th scope="col">КОД</th>
           <th scope="col">за 2020</th>
           <th scope="col">за 2021</th>
-          <th scope="col">Изменение (+-), тыс. руб.</th>
+          <th scope="col">Изменение (+-), руб.</th>
           <th scope="col">Темп прироста %</th>
         </tr>
       </thead>
