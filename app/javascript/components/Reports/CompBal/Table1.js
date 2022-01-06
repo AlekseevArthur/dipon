@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CompBalans = () => {
+const Table1 = () => {
     return <table className="table table-bordered table-hover table-striped">
         <thead className="table-dark">
             <tr>
@@ -23,4 +23,4 @@ const CompBalans = () => {
     </table>
 }
 
-export default CompBalans
+export default Table1

@@ -1,5 +1,11 @@
 class ReportsController < ApplicationController
   def show
-    @result = ReportFinRez.call(year: 2020).result
+    if (params[:type] == '1')
+      @type = '1' 
+      @result = ReportFinRez.call(year: params[:year]).result
+    elsif (params[:type] == '2')
+      @type = '2' 
+      @result = ReportCompBal.call(year: params[:year]).result
+    end
   end
 end
