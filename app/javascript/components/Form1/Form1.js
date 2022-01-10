@@ -49,7 +49,7 @@ const Form1Full = ({ lastForm, currentForm }) => {
               <th scope="col">АКТИВ</th>
               <th scope="col">КОД</th>
               <th scope="col">{'01.01.' + year}</th>
-              <th scope="col">{'12.31.' + year}</th>
+              <th scope="col">{'01.01.' + (parseInt(year) + 1)}</th>
             </tr>
           </thead>
           <tbody>

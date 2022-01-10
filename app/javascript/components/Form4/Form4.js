@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const Form4 = props => {
-  const [values, setValues] = useState({})
+const Form4 = ({ currentForm }) => {
+  const [values, setValues] = useState({ ...currentForm })
 
   const year = new URLSearchParams(window.location.search).get('year')
 
@@ -12,17 +12,13 @@ const Form4 = props => {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ form4: { ...values, ...totals, reporting_date: `${year}.01.01` } })
+      body: JSON.stringify({ form4: { ...totals, ...values, reporting_date: `${year}.01.01` } })
     })
+      .then(res => res.status ? window.location = '/user' : null)
   }
 
-  const totals = {}
+  let totals = {}
 
-  const setTotals = () => {
-    totals['c040'] = values['c020'] - values['c030']
-    totals['c070'] = values['c050'] - values['c060']
-    totals['c100'] = values['c080'] - values['c090']
-  }
 
   const handleChange = (e) => {
     setValues({
@@ -31,16 +27,17 @@ const Form4 = props => {
       [e.target.name]: parseInt(e.target.value)
     })
   }
-  setTotals()
+  totals = setTotals(values)
   return (
     <div className="container">
+      <h1>Форма 4 - отчет о движении денежных средств</h1>
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered table-hover">
           <thead className="thead-dark">
             <tr>
               <th scope="col">Наименование</th>
               <th scope="col">КОД</th>
-              <th scope="col">Значение, тыс. руб.</th>
+              <th scope="col">Значение, руб.</th>
             </tr>
           </thead>
           <tbody>
@@ -57,12 +54,12 @@ const Form4 = props => {
             <tr>
               <th scope="row">Поступило денежных средств - всего </th>
               <td>020</td>
-              <td><input type="number" name='c020' onChange={handleChange} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c020 : 0} name='c020' onChange={handleChange} /></td>
             </tr>
             <tr>
               <th scope="row">Направлено денежных средств - всего </th>
               <td>030</td>
-              <td><input type="number" name='c030' onChange={handleChange} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c030 : 0} name='c030' onChange={handleChange} /></td>
             </tr>
             <tr>
               <th scope="row">Результат движения денежных средств по текущей деятельности (020 - 030)</th>
@@ -77,12 +74,12 @@ const Form4 = props => {
             <tr>
               <th scope="row">Поступило денежных средств - всего </th>
               <td>050</td>
-              <td><input type="number" name='c050' onChange={handleChange} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c050 : 0} name='c050' onChange={handleChange} /></td>
             </tr>
             <tr>
               <th scope="row">Направлено денежных средств - всего </th>
               <td>060</td>
-              <td><input type="number" name='c060' onChange={handleChange} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c060 : 0} name='c060' onChange={handleChange} /></td>
             </tr>
             <tr>
               <th scope="row">Результат движения денежных средств по инвестиционной деятельности (050 - 060)</th>
@@ -97,12 +94,12 @@ const Form4 = props => {
             <tr>
               <th scope="row">Поступило денежных средств - всего </th>
               <td>080</td>
-              <td><input type="number" name='c080' onChange={handleChange} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c080 : 0} name='c080' onChange={handleChange} /></td>
             </tr>
             <tr>
               <th scope="row">Направлено денежных средств - всего </th>
               <td>090</td>
-              <td><input type="number" name='c090' onChange={handleChange} /></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c090 : 0} name='c090' onChange={handleChange} /></td>
             </tr>
             <tr>
               <th scope="row">Результат движения денежных средств по финансовой деятельности (080 - 090)</th>
@@ -112,22 +109,22 @@ const Form4 = props => {
             <tr>
               <th scope="row">Результат движения денежных средств за отчетный период(+-40+-70+-100)</th>
               <td>110</td>
-              <td></td>
+              <td>{totals['c110'] ? totals['c110'] : 0}</td>
             </tr>
             <tr>
               <th scope="row">Отстаток денежных средств и из эквивалентов на начало периода соответствующего периода</th>
               <td>120</td>
-              <td></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c120 : 0} name='c120' onChange={handleChange} /></td>
             </tr>
             <tr>
               <th scope="row">Отстаток денежных средств и из эквивалентов на конец отчетного периода</th>
               <td>130</td>
-              <td></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c130 : 0} name='c130' onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th scope="row">Влияние изменений курса иностарнной валюты по отношению к беларусскому рублю</th>
+              <th scope="row">Влияние изменений курса инострaнной валюты по отношению к беларусскому рублю</th>
               <td>140</td>
-              <td></td>
+              <td><input type="number" defaultValue={currentForm ? currentForm.c140 : 0} name='c140' onChange={handleChange} /></td>
             </tr>
           </tbody>
         </table>
@@ -137,5 +134,15 @@ const Form4 = props => {
     </div>
   )
 }
+
+const setTotals = (vals) => {
+  let totals = {}
+  totals['c040'] = vals['c020'] - vals['c030']
+  totals['c070'] = vals['c050'] - vals['c060']
+  totals['c100'] = vals['c080'] - vals['c090']
+  totals['c110'] = totals['c040'] + totals['c070'] + totals['c100']
+  return totals
+}
+
 
 export default Form4

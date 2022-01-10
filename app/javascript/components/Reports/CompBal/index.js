@@ -2,6 +2,7 @@ import React from "react";
 import Table1 from "./Table1";
 
 const CompBal = ({ data }) => {
+    console.log(data)
     return <div className="container">
         <h1>Сравнительный аналитический баланс</h1>
         <p>Анализ финансового состояния организации начинается со сравнительного аналитического баланса. При этом выявляются важнейшие характеристики:</p>
