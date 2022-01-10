@@ -2,7 +2,7 @@ import React from 'react'
 
 const Table1 = ({ data }) => {
   return (
-    <table className="table table-bordered table-hover">
+    <table className="table table-bordered table-hover table-striped">
       <thead className="table-dark">
         <tr>
           <th scope="col">Показатель</th>

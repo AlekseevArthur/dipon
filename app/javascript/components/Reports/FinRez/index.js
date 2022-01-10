@@ -38,7 +38,8 @@ const FinRez = ({ data }) => {
         </div>
       </div>
       <hr />
-      <Table2 />
+      <h3>Динамика структуры прибыли до налогообложения</h3>
+      <Table2 data={data} />
       <div className="container-sm">
         <h3>Распределение прибыли до налогообложения</h3>
         <VictoryPie data={[
@@ -65,7 +66,7 @@ const FinRez = ({ data }) => {
       <hr />
       <h3>Рачет порога рентабельности и запаса финансовой прочности</h3>
       <Table3 data={data} />
-      
+
     </div>
   )
 }

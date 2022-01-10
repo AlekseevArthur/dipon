@@ -17,3 +17,4 @@ todo list
 - change "new" action to "show"
 - rewrite forms with component approach
 + handle with crsf
++ сравн баланс только по итогам

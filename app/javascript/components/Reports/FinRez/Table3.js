@@ -12,7 +12,7 @@ const Table3 = ({ data }) => {
     let prib2 = data[2][3] - data[3][3] - data[4][3]
     return (
         <div className='container'>
-            <table className="table table-bordered table-hover">
+            <table className="table table-bordered table-hover " >
                 <thead className="table-dark">
                     <tr>
                         <th scope="col">Показатели</th>
